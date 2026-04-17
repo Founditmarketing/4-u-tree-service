@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  
+  --color-brand-red: #D32F2F;
+  --color-brand-black: #000000;
+  --color-brand-elevated: #0A0A0A;
+  --color-brand-white: #FFFFFF;
+  --color-brand-border: #1A1A1A;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-sans antialiased bg-brand-black text-brand-white selection:bg-brand-red selection:text-white;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tighter;
+  }
+}
+
+@layer utilities {
+  .bento-card {
+    @apply bg-brand-elevated border border-brand-border rounded-none p-8 overflow-hidden relative transition-all duration-500;
+  }
+  
+  .text-glow-red {
+    text-shadow: 0 0 20px rgba(211, 47, 47, 0.3);
+  }
+
+  .grid-lines {
+    background-image: linear-gradient(to right, #1A1A1A 1px, transparent 1px),
+                      linear-gradient(to bottom, #1A1A1A 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+}
