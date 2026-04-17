@@ -10,12 +10,12 @@ import AutoScroll from 'embla-carousel-auto-scroll';
 import { ChevronLeft, ChevronRight, X, Maximize2 } from 'lucide-react';
 
 const projects = [
-  { id: 1, title: "Precision Removal", category: "High-Risk", img: "https://picsum.photos/seed/removal-1/800/1000" },
-  { id: 2, title: "Emergency Recovery", category: "Storm Relief", img: "https://picsum.photos/seed/storm-1/800/800" },
-  { id: 3, title: "Land Restoration", category: "Clearing", img: "https://picsum.photos/seed/clearing-1/1000/800" },
-  { id: 4, title: "Structural Defense", category: "Technical", img: "https://picsum.photos/seed/climb-1/800/800" },
-  { id: 5, title: "Estate Management", category: "Residential", img: "https://picsum.photos/seed/estate-1/800/800" },
-  { id: 6, title: "Crane Ops", category: "Heavy Gear", img: "https://picsum.photos/seed/crane-1/800/1000" }
+  { id: 1, title: "Precision Removal", category: "High-Risk", img: "/treework3.png" },
+  { id: 2, title: "Emergency Recovery", category: "Storm Relief", img: "/247.png" },
+  { id: 3, title: "Land Restoration", category: "Clearing", img: "/landclearing.png" },
+  { id: 4, title: "Structural Defense", category: "Technical", img: "/treework5.png" },
+  { id: 5, title: "Estate Management", category: "Residential", img: "/treework6.png" },
+  { id: 6, title: "Crane Ops", category: "Heavy Gear", img: "/services2.png" }
 ];
 
 export default function Gallery() {
@@ -89,7 +89,6 @@ export default function Gallery() {
                   <img 
                     src={project.img} 
                     alt={project.title}
-                    referrerPolicy="no-referrer"
                     className="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-110 opacity-80 group-hover:opacity-100"
                   />
                   

@@ -100,7 +100,7 @@ export default function ServiceDetail() {
                          </div>
                          <ChevronRight className="text-gray-600 group-hover:text-white" />
                       </a>
-                      <Link to="/#quote" className="flex items-center justify-center bg-brand-red text-white py-6 font-black uppercase tracking-widest text-sm shadow-xl shadow-brand-red/20">
+                      <Link to="/contact" className="flex items-center justify-center bg-brand-red text-white py-6 font-black uppercase tracking-widest text-sm shadow-xl shadow-brand-red/20">
                          Get Your Tactical Assessment
                       </Link>
                    </div>
@@ -108,8 +108,8 @@ export default function ServiceDetail() {
 
                 <div className="relative aspect-video overflow-hidden border border-brand-border group">
                    <img 
-                     src={`https://picsum.photos/seed/${service.id}-work/800/600`} 
-                     alt="Field work"
+                     src={service.secondaryImg} 
+                     alt={`${service.title} field work`}
                      className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110"
                    />
                    <div className="absolute inset-0 bg-brand-black/40" />

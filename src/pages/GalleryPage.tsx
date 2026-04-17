@@ -4,15 +4,15 @@ import { X, Maximize2 } from 'lucide-react';
 import ContactForm from '../components/ContactForm';
 
 const projects = [
-  { id: 1, title: "Precision Removal", category: "High-Risk", img: "https://picsum.photos/seed/removal-1/800/1000" },
-  { id: 2, title: "Emergency Recovery", category: "Storm Relief", img: "https://picsum.photos/seed/storm-1/800/800" },
-  { id: 3, title: "Land Restoration", category: "Clearing", img: "https://picsum.photos/seed/clearing-1/1000/800" },
-  { id: 4, title: "Structural Defense", category: "Technical", img: "https://picsum.photos/seed/climb-1/800/800" },
-  { id: 5, title: "Estate Management", category: "Residential", img: "https://picsum.photos/seed/estate-1/800/800" },
-  { id: 6, title: "Crane Ops", category: "Heavy Gear", img: "https://picsum.photos/seed/crane-1/800/1000" },
-  { id: 7, title: "Brush Management", category: "Maintenance", img: "https://picsum.photos/seed/brush-1/1000/1000" },
-  { id: 8, title: "Hazardous Oak Extraction", category: "Technical", img: "https://picsum.photos/seed/oak-1/800/1200" },
-  { id: 9, title: "Storm Perimeter Clear", category: "Emergency", img: "https://picsum.photos/seed/perimeter-1/1200/800" }
+  { id: 1, title: "Precision Removal", category: "High-Risk", img: "/treework2.jpg" },
+  { id: 2, title: "Emergency Recovery", category: "Storm Relief", img: "/2472.png" },
+  { id: 3, title: "Land Restoration", category: "Clearing", img: "/landclearing.webp" },
+  { id: 4, title: "Structural Defense", category: "Technical", img: "/treework5.png" },
+  { id: 5, title: "Estate Management", category: "Residential", img: "/treework6.png" },
+  { id: 6, title: "Crane Ops", category: "Heavy Gear", img: "/services6.png" },
+  { id: 7, title: "Brush Management", category: "Maintenance", img: "/services.png" },
+  { id: 8, title: "Hazardous Oak Extraction", category: "Technical", img: "/treework7.jpg" },
+  { id: 9, title: "Storm Perimeter Clear", category: "Emergency", img: "/treework8.jpg" }
 ];
 
 export default function GalleryPage() {

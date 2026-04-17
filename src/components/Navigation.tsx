@@ -56,11 +56,12 @@ export default function Navigation() {
     >
       <div className={`max-w-7xl mx-auto flex justify-between items-center px-6 transition-all duration-500 ${isScrolled ? 'h-20' : 'h-28'}`}>
         <div className="flex items-center gap-12">
-          <Link to="/" className="flex flex-col group">
-            <span className="text-white font-black text-3xl tracking-tighter uppercase leading-none group-hover:text-brand-red transition-colors">
-              4-U <span className="text-brand-red group-hover:text-white transition-colors">TREE</span>
-            </span>
-            <span className="text-[9px] uppercase tracking-[0.6em] font-bold text-gray-500">Service LLC</span>
+          <Link to="/" className="flex items-center group">
+            <img
+              src="/4ulogo.png"
+              alt="4-U Tree Service LLC"
+              className={`object-contain transition-all duration-500 w-auto group-hover:opacity-80 ${isScrolled ? 'h-12' : 'h-16'}`}
+            />
           </Link>
 
           <div className="hidden lg:flex items-center gap-8 border-l border-brand-border/20 pl-12 h-8">

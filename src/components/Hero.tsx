@@ -14,9 +14,8 @@ export default function Hero() {
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-brand-black/60 z-10" />
         <img 
-          src="https://picsum.photos/seed/crane-tree/1920/1080" 
-          alt="Tree Removal Crane Operation"
-          referrerPolicy="no-referrer"
+          src="/treework4.png" 
+          alt="Tree Removal Operation"
           className="w-full h-full object-cover animate-pulse-slow opacity-60"
         />
         {/* Modern Gradient Mask */}

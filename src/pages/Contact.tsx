@@ -64,7 +64,7 @@ export default function Contact() {
                   <div>
                     <span className="text-[10px] uppercase font-black tracking-widest text-gray-500 block mb-1">Social Intel</span>
                     <a 
-                      href="https://www.facebook.com/4UTreeService" 
+                      href="https://www.facebook.com/4UTREESERVICE?mibextid=LQQJ4d" 
                       target="_blank" 
                       rel="noopener noreferrer" 
                       className="text-lg font-black text-white italic hover:text-brand-red flex items-center gap-2"
