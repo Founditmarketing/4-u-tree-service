@@ -47,13 +47,35 @@ export default function Navigation() {
   };
 
   return (
-    <nav 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b ${
-        isScrolled 
-          ? 'bg-brand-black/95 backdrop-blur-xl border-brand-border py-0 shadow-2xl' 
-          : 'bg-transparent border-transparent py-2'
-      }`}
-    >
+    <>
+      {/* ── Ticker strip ── */}
+      <motion.div
+        className="fixed top-0 left-0 right-0 z-[60] h-8 bg-brand-red overflow-hidden flex items-center"
+        initial={{ y: -32 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+      >
+        <div className="ticker-inner text-white text-[10px] font-black uppercase tracking-[0.35em] whitespace-nowrap gap-16 flex">
+          {[...Array(4)].flatMap((_, i) => [
+            <span key={`a${i}`}>📞 256-996-4740</span>,
+            <span key={`b${i}`} className="opacity-40">·</span>,
+            <span key={`c${i}`}>Licensed &amp; Insured</span>,
+            <span key={`d${i}`} className="opacity-40">·</span>,
+            <span key={`e${i}`}>Fort Payne, Alabama</span>,
+            <span key={`f${i}`} className="opacity-40">·</span>,
+            <span key={`g${i}`}>24/7 Emergency Storm Relief</span>,
+            <span key={`h${i}`} className="opacity-40">·</span>,
+          ])}
+        </div>
+      </motion.div>
+
+      <nav
+        className={`fixed left-0 right-0 z-50 transition-all duration-500 border-b ${
+          isScrolled
+            ? 'top-8 bg-brand-black/97 backdrop-blur-xl border-brand-border shadow-2xl py-0'
+            : 'top-8 bg-transparent border-transparent py-2'
+        }`}
+      >
       <div className={`max-w-7xl mx-auto flex justify-between items-center px-6 transition-all duration-500 ${isScrolled ? 'h-20' : 'h-28'}`}>
         <div className="flex items-center gap-12">
           <Link to="/" className="flex items-center group">
@@ -142,7 +164,8 @@ export default function Navigation() {
             CALL NOW
           </motion.a>
         </div>
-      </div>
-    </nav>
+        </div>
+      </nav>
+    </>
   );
 }

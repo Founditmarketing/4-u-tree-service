@@ -9,11 +9,11 @@ export default function Contact() {
   }, []);
 
   return (
-    <div className="bg-brand-black min-h-screen pt-32 pb-20">
+    <div className="bg-brand-black min-h-screen pt-40 pb-20">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header Section */}
         <div className="mb-20 text-center lg:text-left">
-          <span className="text-brand-red font-black uppercase tracking-[0.6em] text-[12px] mb-6 block">Command Center</span>
+          <span className="text-brand-red font-black uppercase tracking-[0.6em] text-[12px] mb-6 block">Get In Touch</span>
           <h1 className="text-6xl md:text-9xl font-black text-white italic uppercase tracking-tighter leading-[0.85]">
             DIRECT <br />
             <span className="text-brand-red">CONTACT.</span>
@@ -30,7 +30,7 @@ export default function Contact() {
                     <Phone className="text-brand-red" size={20} />
                   </div>
                   <div>
-                    <span className="text-[10px] uppercase font-black tracking-widest text-gray-500 block mb-1">Direct Ops Line</span>
+                    <span className="text-[10px] uppercase font-black tracking-widest text-gray-500 block mb-1">Phone</span>
                     <a href="tel:256-996-4740" className="text-xl font-black text-white italic hover:text-brand-red">256-996-4740</a>
                   </div>
                 </div>
@@ -40,7 +40,7 @@ export default function Contact() {
                     <Mail className="text-brand-red" size={20} />
                   </div>
                   <div>
-                    <span className="text-[10px] uppercase font-black tracking-widest text-gray-500 block mb-1">Email Dispatch</span>
+                    <span className="text-[10px] uppercase font-black tracking-widest text-gray-500 block mb-1">Email</span>
                     <a href="mailto:4utreeservicellc@gmail.com" className="text-lg font-black text-white italic hover:text-brand-red break-all">4utreeservicellc@gmail.com</a>
                   </div>
                 </div>
@@ -62,7 +62,7 @@ export default function Contact() {
                     <Facebook className="text-brand-red" size={20} />
                   </div>
                   <div>
-                    <span className="text-[10px] uppercase font-black tracking-widest text-gray-500 block mb-1">Social Intel</span>
+                    <span className="text-[10px] uppercase font-black tracking-widest text-gray-500 block mb-1">Follow Us</span>
                     <a 
                       href="https://www.facebook.com/4UTREESERVICE?mibextid=LQQJ4d" 
                       target="_blank" 
@@ -81,7 +81,7 @@ export default function Contact() {
               <div className="absolute top-0 right-0 p-4 opacity-10 font-black italic text-8xl pointer-events-none select-none">4-U</div>
               <form className="relative z-10 space-y-6" onSubmit={(e) => e.preventDefault()}>
                 <div className="space-y-2">
-                  <label className="text-[11px] font-black uppercase tracking-widest text-gray-500">Subject Name</label>
+                  <label className="text-[11px] font-black uppercase tracking-widest text-gray-500">Your Name</label>
                   <input 
                     type="text" 
                     placeholder="Full Name"
@@ -125,7 +125,7 @@ export default function Contact() {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[11px] font-black uppercase tracking-widest text-gray-500">Operation Location</label>
+                  <label className="text-[11px] font-black uppercase tracking-widest text-gray-500">Property Address</label>
                   <input 
                     type="text" 
                     placeholder="Property Address"
@@ -133,7 +133,7 @@ export default function Contact() {
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-[11px] font-black uppercase tracking-widest text-gray-500">Mission Parameters</label>
+                  <label className="text-[11px] font-black uppercase tracking-widest text-gray-500">Tell Us About Your Job</label>
                   <textarea 
                     rows={4}
                     placeholder="Describe your tree management needs..."
@@ -177,7 +177,7 @@ export default function Contact() {
             </div>
             
             <div className="p-8 border border-brand-border bg-brand-elevated">
-               <h4 className="text-white font-black italic uppercase tracking-tighter text-xl mb-4">Operational Radius</h4>
+               <h4 className="text-white font-black italic uppercase tracking-tighter text-xl mb-4">Our Service Area</h4>
                <p className="text-gray-400 text-sm font-medium leading-relaxed">
                  We primarily deploy within a 60-mile radius of Fort Payne, Alabama, covering DeKalb, Jackson, and Cherokee counties. Specialized high-priority extractions are considered throughout Northeast Alabama and Northwest Georgia.
                </p>

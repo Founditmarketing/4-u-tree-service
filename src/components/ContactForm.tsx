@@ -13,10 +13,10 @@ export default function ContactForm() {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16">
            <div className="flex flex-col justify-center">
-              <span className="text-brand-red font-black uppercase tracking-[0.6em] text-[10px] mb-8 block">Operational Assessment</span>
+              <span className="text-brand-red font-black uppercase tracking-[0.6em] text-[10px] mb-8 block">Request a Free Quote</span>
               <h2 className="text-5xl md:text-8xl font-black text-white italic uppercase tracking-tighter leading-[0.85] mb-8">
-                READY FOR <br />
-                <span className="text-brand-red">DEPLOYMENT?</span>
+                GET A FREE <br />
+                <span className="text-brand-red">ESTIMATE.</span>
               </h2>
               <p className="text-gray-400 text-lg font-medium leading-relaxed mb-10 max-w-md">
                 Our team is standing by for technical property evaluations. Request an upfront assessment and secure your project on our operational calendar.
@@ -28,7 +28,7 @@ export default function ContactForm() {
                        <Phone size={24} className="text-brand-red group-hover:text-white" />
                     </div>
                     <div>
-                       <span className="text-[10px] uppercase font-black tracking-widest text-gray-500 block">Direct Ops Line</span>
+                       <span className="text-[10px] uppercase font-black tracking-widest text-gray-500 block">Phone</span>
                        <a href="tel:256-996-4740" className="text-2xl font-black text-white italic tracking-tighter hover:text-brand-red">256-996-4740</a>
                     </div>
                  </div>
@@ -38,7 +38,7 @@ export default function ContactForm() {
                        <Mail size={24} className="text-brand-red group-hover:text-white" />
                     </div>
                     <div>
-                       <span className="text-[10px] uppercase font-black tracking-widest text-gray-500 block">Email Dispatch</span>
+                       <span className="text-[10px] uppercase font-black tracking-widest text-gray-500 block">Email</span>
                        <a href="mailto:4utreeservicellc@gmail.com" className="text-xl font-black text-white italic tracking-tighter hover:text-brand-red">4utreeservicellc@gmail.com</a>
                     </div>
                  </div>
@@ -51,7 +51,7 @@ export default function ContactForm() {
                 <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
                    <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
                       <div className="space-y-2">
-                         <label className="text-[11px] font-black uppercase tracking-widest text-gray-500">Subject Name</label>
+                         <label className="text-[11px] font-black uppercase tracking-widest text-gray-500">Your Name</label>
                          <input 
                            type="text" 
                            placeholder="John Doe"
@@ -105,7 +105,7 @@ export default function ContactForm() {
                    </div>
 
                    <div className="space-y-2">
-                      <label className="text-[11px] font-black uppercase tracking-widest text-gray-500">Mission Parameters</label>
+                      <label className="text-[11px] font-black uppercase tracking-widest text-gray-500">Tell Us About Your Job</label>
                       <textarea 
                         rows={4}
                         placeholder="Describe your property needs..."

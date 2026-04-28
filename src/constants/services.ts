@@ -18,7 +18,7 @@ export const servicesData = [
     id: "land-clearing",
     title: "Land Clearing", 
     img: "/landclearing.webp",
-    secondaryImg: "/landclearing.png",
+    secondaryImg: "/landclearing.webp",
     desc: "Large scale vegetation management and site preparation.",
     longDesc: "Preparing a site for construction or just reclaiming your property from invasive growth requires heavy-duty intervention. Our land clearing operations are fast, efficient, and environmentally conscious, utilizing specialized equipment to turn overgrown lots into clean slates.",
     features: [
@@ -107,7 +107,7 @@ export const servicesData = [
   { 
     id: "hardscaping",
     title: "Hardscaping", 
-    img: "/patios.png",
+    img: "/patios.jpg",
     secondaryImg: "/driveways.jpg",
     desc: "Custom driveways, patios, and structural land features.",
     longDesc: "Function meets form with our hardscaping services. We build durable, high-visibility features that enhance property value and useability, from rugged gravel driveways to professional retaining walls and stone patios.",
