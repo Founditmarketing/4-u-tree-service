@@ -38,6 +38,8 @@ export async function POST(request) {
       }),
       signal: AbortSignal.timeout(10000),
     })
+    // The app's rate limit (429) reads to the visitor in plain words, not as a failure (10/4/2026).
+    if (r.status === 429) return Response.json({ ok: false, busy: true }, { status: 429 })
     if (!r.ok) {
       console.error('[lead] app answered', r.status)
       return Response.json({ ok: false })
