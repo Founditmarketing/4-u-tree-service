@@ -6,17 +6,29 @@
 //
 // Run after any change to public/assets or the routes below:
 //   PLAYWRIGHT=/path/to/node_modules/playwright node scripts/snapshot.mjs
+// Pass a route to refresh only its snapshot and preserve existing animation frames elsewhere.
 import fs from 'node:fs';
 import http from 'node:http';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { pages, SITE } from './pages.mjs';
 
+const requested = process.argv.slice(2);
+const routes = requested.length ? requested : Object.keys(pages);
+for (const route of routes) {
+  if (!Object.hasOwn(pages, route)) throw new Error(`Unknown route: ${route}`);
+}
+
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const pub = path.join(root, 'public');
 const shell = fs.readFileSync(path.join(root, 'scripts', 'spa-shell.html'), 'utf8');
 const pw = process.env.PLAYWRIGHT ? pathToFileURL(path.join(process.env.PLAYWRIGHT, 'index.mjs')).href : 'playwright';
 const { chromium } = await import(pw);
+
+function routeShell(meta) {
+  if (!meta?.stylesheet) return shell;
+  return shell.replace('  </head>', `    <link rel="stylesheet" href="${meta.stylesheet}" />\n  </head>`);
+}
 
 const types = { '.js': 'text/javascript', '.css': 'text/css', '.png': 'image/png', '.jpg': 'image/jpeg', '.webp': 'image/webp', '.svg': 'image/svg+xml' };
 const server = http.createServer((req, res) => {
@@ -27,7 +39,7 @@ const server = http.createServer((req, res) => {
     return fs.createReadStream(file).pipe(res);
   }
   res.writeHead(200, { 'content-type': 'text/html' });
-  res.end(shell);
+  res.end(routeShell(pages[p]));
 });
 await new Promise((r) => server.listen(0, r));
 const base = `http://127.0.0.1:${server.address().port}`;
@@ -35,10 +47,12 @@ const base = `http://127.0.0.1:${server.address().port}`;
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 const browser = await chromium.launch(process.env.CHROME_CHANNEL ? { channel: process.env.CHROME_CHANNEL } : {});
 const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+page.setDefaultTimeout(120_000);
 // The quote-form script only wires up forms in the browser; keep it out of the snapshot.
 await page.route('**/lead-form-v*.js', (r) => r.abort());
 let failed = 0;
-for (const [route, meta] of Object.entries(pages)) {
+for (const route of routes) {
+  const meta = pages[route];
   try {
     await page.goto(base + route, { waitUntil: 'networkidle' });
     await page.waitForSelector('#root > *');
@@ -49,7 +63,7 @@ for (const [route, meta] of Object.entries(pages)) {
     html = html.replace(/opacity:\s*0(?![.\d])/g, 'opacity: 1');
     const url = SITE + (route === '/' ? '/' : route);
     const t = esc(meta.title), d = esc(meta.description);
-    let out = shell
+    let out = routeShell(meta)
       .replace(/<title>[^<]*<\/title>/, `<title>${t}</title>\n    <link rel="canonical" href="${url}" />`)
       .replace(/(<meta name="title" content=")[^"]*/, `$1${t}`)
       .replace(/(<meta name="description" content=")[^"]*/, `$1${d}`)
@@ -59,6 +73,10 @@ for (const [route, meta] of Object.entries(pages)) {
       .replace(/(<meta name="twitter:title" content=")[^"]*/, `$1${t}`)
       .replace(/(<meta name="twitter:description" content=")[^"]*/, `$1${d}`)
       .replace('<div id="root"></div>', `<div id="root">${html}</div>`);
+    if (meta.business) {
+      const json = JSON.stringify(meta.business).replace(/</g, '\\u003c');
+      out = out.replace('  </head>', `    <script type="application/ld+json">${json}</script>\n  </head>`);
+    }
     const file = route === '/' ? path.join(pub, 'index.html') : path.join(pub, route.slice(1), 'index.html');
     fs.mkdirSync(path.dirname(file), { recursive: true });
     fs.writeFileSync(file, out);
