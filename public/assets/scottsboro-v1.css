@@ -3,9 +3,37 @@
   overflow-x: clip;
 }
 
+main > div > section:first-child {
+  height: auto;
+  min-height: 65vh;
+  padding-block: 2rem;
+}
+
+/* Leave room for SCOTTSBORO in the wider fallback face during font swap. */
+main h1 {
+  font-size: min(3.75rem, 10vw);
+}
+
+#quote .grid > .flex-col {
+  container-type: inline-size;
+}
+
+#quote h2 {
+  font-size: min(3rem, 15cqi);
+}
+
+@media (min-width: 48rem) {
+  main h1 {
+    font-size: min(8rem, 11vw);
+  }
+
+  #quote h2 {
+    font-size: min(6rem, 15cqi);
+  }
+}
+
 @media (max-width: 639px) {
   main h1 {
-    font-size: clamp(2.5rem, 13.5vw, 3.75rem);
     text-wrap: balance;
   }
 
